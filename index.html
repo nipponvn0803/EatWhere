@@ -42,10 +42,12 @@
 
 <body>
     <ons-page>
+      <form action="restaurant.html" method="GET">
         <p class="search-input-p">
-            <ons-search-input placeholder="Search" onchange="ons.notification.alert('Searhed for: ' + this.value)"
+            <ons-search-input placeholder="Search" name="query"
                 modifier="material"></ons-search-input>
         </p>
+      </form>
         <ons-row>
             <ons-col class="column" width="80%">
                 <ons-row>
