@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <link rel="stylesheet" href="css/restaurant.css">
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <title></title>
+    <script type="text/javascript">
+
+    </script>
+  </head>
+  <body>
+      <ons-page>
+        <ons-list>
+            <div id="search_result">
+
+            </div>
+        </ons-list>
+      </ons-page>
+
+    <script type="text/javascript">
+    //return an array of element with class "center"
+    var center = document.getElementsByClassName("center");
+    function HideAll() {
+      for (var i = 0; i < center.length; i++) {
+        center[i].lastElementChild.style.display = "none";
+      }
+    }
+
+    //get restaurant detail from database
+    function loadRestDetails(id) {
+      if (id=="") {
+        document.getElementById("search_result").innerHTML="";
+        return;
+      }
+
+      xmlhttp=new XMLHttpRequest();
+
+      xmlhttp.onreadystatechange=function() {
+        if (this.readyState==4 && this.status==200) {
+          document.getElementById("search_result").innerHTML=this.responseText;
+
+          //Hide all reviews
+          HideAll();
+
+          let listItem = Array.from(document.querySelectorAll('.item'));
+
+          //remove class "active" when aother div is clicked, hide reviews
+          const handleClick = (e) => {
+            e.preventDefault();
+            listItem.forEach(node => {
+              node.classList.remove('active');
+              var target = node.lastElementChild;
+              Hide(target);
+            });
+            // add class "active" when clicked, show reviews
+            e.currentTarget.classList.add('active');
+            var target = e.currentTarget.lastElementChild;
+            Expand(target);
+          }
+
+          listItem.forEach(node => {
+            node.addEventListener('click', handleClick)
+          });
+        }
+      }
+      xmlhttp.open("GET","http://www.students.oamk.fi/~t6trso00/EatWhere/data.php?query="+id,true);
+      xmlhttp.send();
+    }
+
+    //format query, remove ?query=
+    var query = location.search.substring(7);
+
+    window.onload = loadRestDetails(query);
+
+    function Expand(x) {
+      x.lastElementChild.style.display = "inline";
+    }
+
+    function Hide(x){
+      x.lastElementChild.style.display = "none";
+    }
+
+    </script>
+  </body>
+</html>
