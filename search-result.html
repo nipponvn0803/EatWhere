@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
-    <link rel="stylesheet" href="css/restaurant.css">
+    <link rel="stylesheet" href="css/search-result.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
     <title></title>
     <script type="text/javascript">
@@ -67,6 +67,7 @@
         }
       }
       xmlhttp.open("GET","http://www.students.oamk.fi/~t6trso00/EatWhere/data.php?query="+id,true);
+      //    xmlhttp.open("GET","data.php?query="+id,true);
       xmlhttp.send();
     }
 
