@@ -41,56 +41,62 @@
 </head>
 
 <body>
-  <template id="index.html">
-    <ons-page>
-        <img src="img/logo.png">
-      <form action="search-result.html" method="GET">
-        <p class="search-input-p">
-            <ons-search-input placeholder="Search" name="query"
-                modifier="material"></ons-search-input>
-        </p>
-      </form>
-      <button> <a href="test.html">Test</a> </button>
-        <ons-row>
-            <ons-col class="column" width="80%">
-                <ons-row>
-                    <ons-col>
-                        <ons-button modifier="large--quiet" id="navigation-button-1" ripple>Near me</ons-button>
-                    </ons-col>
-                    <ons-col>
-                        <ons-button modifier="large--quiet" id="navigation-button-2" ripple>Discover</ons-button>
-                    </ons-col>
-                </ons-row>
-            </ons-col>
-        </ons-row>
-        <ons-row>
-            <ons-col class="column" width="80%">
-                <ons-row>
-                    <ons-col>
-                        <ons-button modifier="large--quiet" ripple id="navigation-button-3">Promotions</ons-button>
-                    </ons-col>
-                    <ons-col>
-                        <ons-button modifier="large--quiet" ripple id="navigation-button-4">Restaurant
-                            <br>of the day</ons-button>
-                    </ons-col>
-                </ons-row>
-            </ons-col>
-        </ons-row>
-    </ons-page>
-  </template>
+    <ons-navigator swipeable id="myNavigator" page="index.html">
+        <ons-page>
+            <ons-tabbar swipeable position="bottom">
+                <ons-tab page="index.html" label="Home" icon="ion-home, material:md-home" badge="7"
+                    active>
+                </ons-tab>
+                <ons-tab page="special.html" label="Special" icon="ion-help">
+                </ons-tab>
+                <ons-tab page="promotion.html" label="Promotions" icon="ion-speakerphone">
+                </ons-tab>
+                <ons-tab page="saved-place.html" label="Saved" icon="ion-bookmark">
+                </ons-tab>
+                <ons-tab page="setting.html" label="Settings" icon="md-settings">
+                </ons-tab>
+            </ons-tabbar>
+        </ons-page>
+    </ons-navigator>
+    <template id="index.html">
+        <ons-page id="index">
+            <img src="img/logo.png">
+            <form action="search-result.html" method="GET">
+                <p class="search-input-p">
+                    <ons-search-input placeholder="Search" name="query" modifier="material"></ons-search-input>
+                </p>
+            </form>
+            <button>
+                <a href="test.html">Test</a>
+            </button>
+            <ons-row>
+                <ons-col class="column" width="80%">
+                    <ons-row>
+                        <ons-col>
+                            <ons-button modifier="large--quiet" id="navigation-button-1" ripple>Near me</ons-button>
+                        </ons-col>
+                        <ons-col>
+                            <ons-button modifier="large--quiet" id="navigation-button-2" ripple>Discover</ons-button>
+                        </ons-col>
+                    </ons-row>
+                </ons-col>
+            </ons-row>
+            <ons-row>
+                <ons-col class="column" width="80%">
+                    <ons-row>
+                        <ons-col>
+                            <ons-button modifier="large--quiet" ripple id="navigation-button-3">Promotions</ons-button>
+                        </ons-col>
+                        <ons-col>
+                            <ons-button modifier="large--quiet" ripple id="navigation-button-4">Restaurant
+                                <br>of the day</ons-button>
+                        </ons-col>
+                    </ons-row>
+                </ons-col>
+            </ons-row>
+        </ons-page>
+    </template>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
-
-<ons-tabbar swipeable position="bottom">
-   <ons-tab page="index.html" label="Home" icon="ion-home, material:md-home" badge="7" active>
-   </ons-tab>
-   <ons-tab page="special.html" label="Special" icon="ion-help">
-   </ons-tab>
-   <ons-tab page="promotion.html" label="Promotions" icon="ion-speakerphone">
-   </ons-tab>
-   <ons-tab page="saved-place.html" label="Saved" icon="ion-bookmark">
-   </ons-tab>
-   <ons-tab page="setting.html" label="Settings" icon="md-settings">
-   </ons-tab>
- </ons-tabbar>
