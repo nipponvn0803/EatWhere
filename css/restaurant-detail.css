@@ -1,0 +1,17 @@
+.image-wrapper {
+  position: relative;
+  min-height: 200px;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  position: relative;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.page__content ons-tabbar {
+  top: 200px !important;
+}

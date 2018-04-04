@@ -31,6 +31,11 @@ body {
     width:100%;
 }
 
+img {
+    margin: auto;
+    display:block;
+}
+
 .search-input-p {
     text-align: center;
     margin-top: 10px;
@@ -62,4 +67,11 @@ body {
     padding-bottom: 7px;
     padding-top: 10px;
     line-height:130%;
+}
+
+@media screen and (orientation:landscape) { 
+    img {
+        width: auto;
+        height: 100px;
+    }
 }
