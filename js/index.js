@@ -9,7 +9,7 @@ document.addEventListener('init', function (event) {
 
     if (page.id === 'index') {
         page.querySelector('#navigation-button-2').onclick = function () {
-            document.querySelector('#myNavigator').pushPage('discover.html', { data: { title: 'Page 2' } });
+            document.getElementsByTagName('ons-tabbar')[0].setActiveTab(3);
         };
     }/* 
      else if (page.id === 'page2') {

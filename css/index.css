@@ -34,6 +34,7 @@ body {
 img {
     margin: auto;
     display:block;
+    max-width: 100%;
 }
 
 .search-input-p {
@@ -70,7 +71,7 @@ img {
 }
 
 @media screen and (orientation:landscape) { 
-    img {
+    #logo {
         width: auto;
         height: 100px;
     }
