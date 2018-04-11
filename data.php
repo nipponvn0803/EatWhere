@@ -36,9 +36,8 @@
 
       echo "<div class=\"center\">";
       echo "<form action=\"restaurant-detail.html\" method=\"GET\">";
-      echo "<p class=\"search-input-p\">";
-      echo "<ons-search-input value=\"$row[3]\" name=\"id\" modifier=\"material\"></ons-search-input>";
-      echo "</p>";
+      echo "<input value=\"$row[3]\" name=\"id\" modifier=\"material\"></input>";
+      echo "<input type=\"submit\" value\"Submit\">";
       echo "</form>";
       echo "<span class=\"list-item__title\">$row[0]</span>";
       echo "<span class=\"list-item__subtitle\">$row[1]</span>";
