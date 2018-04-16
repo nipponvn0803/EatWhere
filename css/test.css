@@ -31,9 +31,8 @@ body {
     width:100%;
 }
 
-img {
-    margin: auto;
-    display:block;
+img #logo {
+
 }
 
 .search-input-p {
@@ -43,38 +42,24 @@ img {
 
 .column { margin: auto; }
 
-#navigation-button-1 {
-    border: lightgray solid;
-    border-width: 0 0.02px 0.02px 0;
-    border-radius: 0;
+ons-row{
+  height: 25%;
 }
 
-#navigation-button-2 {
-    border: lightgray solid;
-    border-width: 0 0 0.02px 0;
-    border-radius: 0;
+@media screen and (max-width: 480px) {
+  .core-feature{
+    margin: auto;
+    display: block;
+    height: 90%;
+  }
+
+  #logo {
+    margin: auto;
+    display:block;
+    height: 30%;
+  }
 }
 
-#navigation-button-3 {
-    padding-top: 7px;
-    padding-bottom: 10px;
-    border: lightgray solid;
-    border-width: 0 0.02px 0 0;
-    border-radius: 0;
-}
-
-#navigation-button-4 {
-    padding-bottom: 7px;
-    padding-top: 10px;
-    line-height:130%;
-}
-
-@media screen and (orientation:landscape) {
-    img {
-        width: auto;
-        height: 100px;
-    }
-}
 .carousel-tab{
   text-align: center;
 }

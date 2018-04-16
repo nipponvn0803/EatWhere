@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
     <link rel="stylesheet" href="css/search-result.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+
     <title></title>
 
   </head>
@@ -38,6 +39,8 @@
 
           //Hide all reviews
           HideAll();
+          console.log(filter);
+          console.log(query);
 
           let listItem = Array.from(document.querySelectorAll('.item'));
 
@@ -60,8 +63,8 @@
           });
         }
       }
-  //    xmlhttp.open("GET","http://www.students.oamk.fi/~t6trso00/EatWhere/data.php?query="+id,true);
-          xmlhttp.open("GET","data.php?query="+id,true);
+    //  xmlhttp.open("GET","http://www.students.oamk.fi/~t6trso00/EatWhere/data.php?query="+id,true);
+      xmlhttp.open("GET","data.php?query="+id,true);
       xmlhttp.send();
     }
 
@@ -70,13 +73,18 @@
     var queryArray = location.search.split("&");
     //format query, remove ?query=
     var query = queryArray[0].substring(7);
-    //format query, remove ?filter=
-    var filter1 = queryArray[1].substring(7)
-    //format query, remove %2C return array
-    var filter2 = filter1.split("%2C");
-    //convert array to string
-    var filter = filter2.toString();
-    console.log(filter);
+    if (queryArray.length > 1) {
+      //format query, remove ?filter=
+      var filter1 = queryArray[1].substring(7)
+      //format query, remove %2C return array
+      var filter2 = filter1.split("%2C");
+      //convert array to string
+      var filter = filter2.toString();
+    }
+    else {
+      var filter = "";
+    }
+
 
     window.onload = loadRestDetails(query, filter);
 

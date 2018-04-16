@@ -60,9 +60,10 @@
             </ons-tabbar>
         </ons-page>
     </ons-navigator>
+    
     <template id="index.html">
         <ons-page id="index">
-            <img src="img/logo.png">
+            <img id="logo" src="img/logo.png">
             <form action="search-result.html" method="GET">
                 <p class="search-input-p">
                     <ons-search-input placeholder="Search" name="query" modifier="material"></ons-search-input>
@@ -71,29 +72,20 @@
             </form>
             <ons-button modifier="large--quiet" id="advanced" ripple>Filter</ons-button>
             <ons-row>
-                <ons-col class="column" width="80%">
-                    <ons-row>
                         <ons-col>
-                            <ons-button modifier="large--quiet" id="navigation-button-1" ripple>Near me</ons-button>
+                            <img class="core-feature" src="img/nearme.png">
                         </ons-col>
                         <ons-col>
-                            <ons-button modifier="large--quiet" id="navigation-button-2" ripple>Discover</ons-button>
+                            <img class="core-feature" id="navigation-button-2" src="img/nearme.png">
                         </ons-col>
-                    </ons-row>
-                </ons-col>
             </ons-row>
             <ons-row>
-                <ons-col class="column" width="80%">
-                    <ons-row>
                         <ons-col>
-                            <ons-button modifier="large--quiet" ripple id="navigation-button-3">Promotions</ons-button>
+                            <img class="core-feature" src="img/nearme.png">
                         </ons-col>
                         <ons-col>
-                            <ons-button modifier="large--quiet" ripple id="navigation-button-4">Restaurant
-                                <br>of the day</ons-button>
+                            <img class="core-feature" src="img/nearme.png">
                         </ons-col>
-                    </ons-row>
-                </ons-col>
             </ons-row>
         </ons-page>
     </template>
@@ -145,25 +137,25 @@
       <ons-carousel class="carousel-tab" id="cuisine-carousel-1" auto-refresh swipeable item-width="50px">
         <ons-carousel-item class="filter-carousel-item">
           <div class="filter-option">
-            <img data-filter="Asian" class="filter-image" src="img/kfc.jpg">
+            <img data-filter="Asian" class="filter-image" src="img/asian.jpg">
             <p>Asian</p>
           </div>
         </ons-carousel-item>
         <ons-carousel-item class="filter-carousel-item">
           <div class="filter-option">
-            <img data-filter="European" class="filter-image" src="img/kfc.jpg">
+            <img data-filter="European" class="filter-image" src="img/european.jpg">
             <p>European</p>
           </div>
         </ons-carousel-item>
         <ons-carousel-item class="filter-carousel-item">
           <div class="filter-option">
-            <img data-filter="American" class="filter-image" src="img/kfc.jpg">
+            <img data-filter="American" class="filter-image" src="img/american.jpg">
             <p>American</p>
           </div>
         </ons-carousel-item>
         <ons-carousel-item class="filter-carousel-item">
           <div class="filter-option">
-            <img data-filter="African" class="filter-image" src="img/kfc.jpg">
+            <img data-filter="African" class="filter-image" src="img/african.jpg">
             <p>African</p>
           </div>
         </ons-carousel-item>
@@ -171,25 +163,25 @@
         <ons-carousel class="carousel-tab" id="cuisine-carousel-2" auto-refresh swipeable item-width="50px">
         <ons-carousel-item class="filter-carousel-item">
           <div class="filter-option">
-            <img data-filter="Vegan" class="filter-image" src="img/kfc.jpg">
+            <img data-filter="Vegan" class="filter-image" src="img/vegan.jpg">
             <p>Vegan</p>
           </div>
         </ons-carousel-item>
         <ons-carousel-item class="filter-carousel-item">
           <div class="filter-option">
-            <img data-filter="FastFood" class="filter-image" src="img/kfc.jpg">
+            <img data-filter="FastFood" class="filter-image" src="img/fastfood.jpg">
             <p>Fast Food</p>
           </div>
         </ons-carousel-item>
         <ons-carousel-item class="filter-carousel-item">
           <div class="filter-option">
-            <img data-filter="SeaFood" class="filter-image" src="img/kfc.jpg">
+            <img data-filter="SeaFood" class="filter-image" src="img/seafood.jpg">
             <p>Seafood</p>
           </div>
         </ons-carousel-item>
         <ons-carousel-item class="filter-carousel-item">
           <div class="filter-option">
-            <img data-filter="Fusion" class="filter-image" src="img/kfc.jpg">
+            <img data-filter="Fusion" class="filter-image" src="img/fusion.jpg">
             <p>Fusion</p>
           </div>
         </ons-carousel-item>
@@ -199,19 +191,19 @@
       <ons-carousel class="carousel-tab" id="price-carousel-1" auto-refresh swipeable item-width="50px">
         <ons-carousel-item class="filter-carousel-item">
           <div class="filter-option">
-            <img data-filter="Cheap" class="filter-image" src="img/kfc.jpg">
+            <img data-filter="Cheap" class="filter-image" src="img/cheap.png">
             <p>$</p>
           </div>
         </ons-carousel-item>
         <ons-carousel-item class="filter-carousel-item">
           <div class="filter-option">
-            <img data-filter="Medium" class="filter-image" src="img/kfc.jpg">
+            <img data-filter="Medium" class="filter-image" src="img/medium.png">
             <p>$$</p>
           </div>
         </ons-carousel-item>
         <ons-carousel-item class="filter-carousel-item">
           <div class="filter-option">
-            <img data-filter="Expensive" class="filter-image" src="img/kfc.jpg">
+            <img data-filter="Expensive" class="filter-image" src="img/expensive.png">
             <p>$$$</p>
           </div>
         </ons-carousel-item>
