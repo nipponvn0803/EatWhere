@@ -14,16 +14,16 @@
   or die ("no database");
 
   // Search for restaurant name/addess/tag that match the search query
-  // $result = mysqli_query($connection, "SELECT restaurant_name, address, image, restaurant_id
-  //   FROM Restaurants
-  //   WHERE restaurant_name LIKE '%{$query}%'
-  //   OR tag LIKE '%{$query}%'
-  //   OR address LIKE '%{$query}%'");
+  $result = mysqli_query($connection, "SELECT restaurant_name, address, image, restaurant_id
+    FROM Restaurants
+    WHERE restaurant_name LIKE '%{$query}%'
+    OR tag LIKE '%{$query}%'
+    OR address LIKE '%{$query}%'");
 
-    $result = mysqli_query($connection, "SELECT restaurant_name, address, image, restaurant_id
-      FROM Restaurants
-      WHERE '%{$query}%' LIKE CONCAT('%',tag,'%')
-");
+//     $result = mysqli_query($connection, "SELECT restaurant_name, address, image, restaurant_id
+//       FROM Restaurants
+//       WHERE '%{$query}%' LIKE CONCAT('%',tag,'%')
+// ");
 
     // echo html template for each matching result
     while($row=mysqli_fetch_row($result)){
