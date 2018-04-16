@@ -3,9 +3,9 @@ document.addEventListener('init', function (event) {
     var temp1 = document.getElementsByTagName("template")[0];
 
     if (page.id === 'index') {
-        page.querySelector('#navigation-button-2').onclick = function () {
-            document.querySelector('#myNavigator').pushPage('discover.html', { data: { title: 'Page 2' } });
-        };
+      page.querySelector('#navigation-button-2').onclick = function () {
+          document.getElementsByTagName('ons-tabbar')[0].setActiveTab(3);
+      };
         page.querySelector('#advanced').onclick = function () {
             document.querySelector('#myNavigator').pushPage('filter.html', { data: { title: 'Filter' } });
         };

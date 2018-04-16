@@ -40,17 +40,39 @@ img #logo {
     margin-top: 10px;
 }
 
-.column { margin: auto; }
-
-ons-row{
-  height: 25%;
-}
-
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 500px) {
   .core-feature{
+    border-spacing: 15px;
     margin: auto;
     display: block;
-    height: 90%;
+    width: 70%;
+    padding-top: 70%;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-size: cover;
+  }
+
+  .core-feature:active{
+    transform: translateY(4px);
+  }
+
+  #navigation-button-1{
+    background-image: url(../img/nearme.png);
+  }
+
+  #navigation-button-2{
+    background-image: url(../img/discover.png);
+  }
+
+  #navigation-button-3{
+    background-image: url(../img/promotion.png);
+  }
+
+  #navigation-button-4{
+    background-image: url(../img/resotday.png);
   }
 
   #logo {
