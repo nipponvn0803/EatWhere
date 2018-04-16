@@ -1,22 +1,29 @@
 <ons-page>
-    <ons-col id="discover-col">
-        <ons-card>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/McDonalds_Limingantulli_Oulu_20111106.JPG" id="discover-img">
-            <div class="title">McDonalds</div>
-            <div class="Content">
-                <div class="stars-outer">
-                    <div class="stars-inner"></div>
+    <ons-row>
+        <ons-col width="16px" id="discover-progress-col">
+            <ons-progress-circular indeterminate id="discover-progress"></ons-progress-circular>
+        </ons-col>
+    </ons-row>
+    <ons-row>
+        <ons-col id="discover-col">
+            <ons-card>
+                <img id="discover-img" src="https://lh5.googleusercontent.com/p/AF1QipMvZ9xdiMpJDBs5DRhi9yMw-DMcWKyDtgW4lEE-=w408-h408-k-no">
+                <div class="title" id="discover-restaurant-name">McDonalds</div>
+                <div class="Content">
+                    <div class="stars-outer">
+                        <div class="stars-inner"></div>
+                    </div>
+                    <p id="discover-description">American fast food - popular and cheap</p>
+                    <div id="discover-review-user">JohnSmith1132</div>
+                    <div id="discover-review-content">"McDonald's has updated most of their stores in our area to a
+                        double window. It's been a miserable experience since. Wait
+                        time 20-40 min. abc"
+                    </div>
+                    <ons-button ripple id="discover-skip-button">Skip</ons-button>
+                    <ons-button ripple id="discover-details-button">More details</ons-button>
                 </div>
-                <p id="discover-description">American fast food - popular and cheap</p>
-                <div id="discover-review-user">JohnSmith1132</div>
-                <div id="discover-review-content">"McDonald's has updated most of their stores in our area to a double
-                    window. It's been a miserable experience since. Wait time 20-40
-                    min. abc"
                 </div>
-                <ons-button ripple id="discover-skip-button">Skip</ons-button>
-                <ons-button ripple id="discover-details-button">More details</ons-button>
-            </div>
-            </div>
-        </ons-card>
-    </ons-col>
+            </ons-card>
+        </ons-col>
+    </ons-row>
 </ons-page>
