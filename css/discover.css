@@ -1,7 +1,15 @@
 #discover-col {
-    left: 0px;
-    position: relative;
-    transition: left 0.195s cubic-bezier(0.4, 0.0, 1, 1);
+    transition: transform 0.195s cubic-bezier(0.4, 0.0, 1, 1);
+    will-change: transform;
+}
+
+#discover-progress-col { margin: auto; }
+
+#discover-progress {
+    position: absolute;
+    transform: translateY(700%) scale(1.5);
+    opacity: 0;
+    transition: opacity .5s;
 }
 
 #discover-img {
