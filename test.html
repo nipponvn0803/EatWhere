@@ -65,7 +65,11 @@
 
     <template id="index.html">
         <ons-page id="index">
-            <img id="logo" src="img/logo.png">
+            <div id="logo">
+
+                <p id="eatwhere">EatWhere</p>
+
+            </div>
             <form action="search-result.html" method="GET">
                 <p class="search-input-p">
                     <ons-search-input placeholder="Search" name="query" modifier="material"></ons-search-input>
@@ -75,18 +79,22 @@
             <ons-button modifier="large--quiet" id="advanced" ripple>Filter</ons-button>
             <ons-row>
                         <ons-col>
-                            <div class="core-feature" id="navigation-button-1"></div>
+                              <ons-button class="core-feature" modifier="large--quiet" id="navigation-button-1" ripple><ons-icon size="40px" icon="ion-compass"></ons-icon>
+                                <br> Near me</ons-button>
                         </ons-col>
                         <ons-col>
-                            <div class="core-feature" id="navigation-button-2"></div>
+                              <ons-button class="core-feature" modifier="large--quiet" id="navigation-button-2" ripple><ons-icon size="40px" icon="ion-paper-airplane"></ons-icon>
+                                <br>Discover</ons-button>
                         </ons-col>
             </ons-row>
             <ons-row>
                         <ons-col>
-                            <div class="core-feature" id="navigation-button-3"></div>
+                              <ons-button class="core-feature" modifier="large--quiet" id="navigation-button-1" ripple><ons-icon size="40px" icon="fa-bullhorn"></ons-icon>
+                                <br>Promotions</ons-button>
                         </ons-col>
                         <ons-col>
-                            <div class="core-feature" id="navigation-button-4"></div>
+                              <ons-button class="core-feature" modifier="large--quiet" id="navigation-button-1" ripple><ons-icon size="40px" icon="ion-android-star-outline"></ons-icon>
+                                <br>Restaurant <br>of the day</ons-button>
                         </ons-col>
             </ons-row>
         </ons-page>
