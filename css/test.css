@@ -31,32 +31,44 @@ body {
     width:100%;
 }
 
-img #logo {
-
-}
-
 .search-input-p {
     text-align: center;
     margin-top: 10px;
 }
 
-.column { margin: auto; }
-
-ons-row{
-  height: 25%;
-}
-
-@media screen and (max-width: 480px) {
-  .core-feature{
+@media screen and (max-width: 500px) {
+  #advanced{
+    background-color: white;
+    color: black;
+    width: 20%;
     margin: auto;
-    display: block;
-    height: 90%;
+    text-align: center;
+    font-size: 20px;
   }
 
-  #logo {
-    margin: auto;
-    display:block;
-    height: 30%;
+  .core-feature{
+    color: white;
+    margin-top: 15%;
+    padding: 0;
+  }
+
+  #index  .page__background{
+      background-image: url(../img/cover.png);
+      background-size: cover;
+    }
+
+  #logo{
+    height:30%;
+  }
+
+  #eatwhere{
+    font-family:        Street;
+    font-size:          60px;
+    text-align:         center;
+    margin:             0;
+    color: white;
+    padding-top: 12%;
+  }
   }
 }
 
@@ -83,4 +95,9 @@ ons-row{
 
 .active-image{
   border: 3px solid green;
+}
+
+@font-face {
+    font-family: Street;
+    src: url(../Font/Street.ttf);
 }

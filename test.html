@@ -29,7 +29,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-    <meta http-equiv="Content-Security-Policy" content="default-src https://unpkg.com/ https://code.jquery.com/ 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://unpkg.com/; media-src *; img-src 'self' data: content:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src https://unpkg.com/ 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://unpkg.com/; media-src *; img-src https: 'self' data: content:;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -47,23 +47,29 @@
 <body>
     <ons-navigator swipeable id="myNavigator" page="index.html">
         <ons-page>
-            <ons-tabbar position="bottom">
-                <ons-tab page="index.html" label="Home" icon="ion-home, material:md-home" badge="7"
-                    active>
-                </ons-tab>
-                <ons-tab page="special.html" label="Special" icon="ion-help">
-                </ons-tab>
-                <ons-tab page="saved-place.html" label="Saved" icon="ion-bookmark">
-                </ons-tab>
-                <ons-tab page="setting.html" label="Settings" icon="md-settings">
-                </ons-tab>
-            </ons-tabbar>
+          <ons-tabbar position="bottom">
+              <ons-tab page="index.html" label="Home" icon="ion-home, material:md-home"
+                  active>
+              </ons-tab>
+              <ons-tab page="setting.html" label="Discover" icon="ion-help">
+              </ons-tab>
+              <ons-tab page="promotion.html" label="Promotions" icon="ion-speakerphone">
+              </ons-tab>
+              <ons-tab page="discover.html" label="Discover" icon="ion-fireball">
+              </ons-tab>
+              <ons-tab page="setting.html" label="Settings" icon="md-settings">
+              </ons-tab>
+          </ons-tabbar>
         </ons-page>
     </ons-navigator>
-    
+
     <template id="index.html">
         <ons-page id="index">
-            <img id="logo" src="img/logo.png">
+            <div id="logo">
+
+                <p id="eatwhere">EatWhere</p>
+
+            </div>
             <form action="search-result.html" method="GET">
                 <p class="search-input-p">
                     <ons-search-input placeholder="Search" name="query" modifier="material"></ons-search-input>
@@ -73,18 +79,22 @@
             <ons-button modifier="large--quiet" id="advanced" ripple>Filter</ons-button>
             <ons-row>
                         <ons-col>
-                            <img class="core-feature" src="img/nearme.png">
+                              <ons-button class="core-feature" modifier="large--quiet" id="navigation-button-1" ripple><ons-icon size="40px" icon="ion-compass"></ons-icon>
+                                <br> Near me</ons-button>
                         </ons-col>
                         <ons-col>
-                            <img class="core-feature" id="navigation-button-2" src="img/nearme.png">
+                              <ons-button class="core-feature" modifier="large--quiet" id="navigation-button-2" ripple><ons-icon size="40px" icon="ion-paper-airplane"></ons-icon>
+                                <br>Discover</ons-button>
                         </ons-col>
             </ons-row>
             <ons-row>
                         <ons-col>
-                            <img class="core-feature" src="img/nearme.png">
+                              <ons-button class="core-feature" modifier="large--quiet" id="navigation-button-1" ripple><ons-icon size="40px" icon="fa-bullhorn"></ons-icon>
+                                <br>Promotions</ons-button>
                         </ons-col>
                         <ons-col>
-                            <img class="core-feature" src="img/nearme.png">
+                              <ons-button class="core-feature" modifier="large--quiet" id="navigation-button-1" ripple><ons-icon size="40px" icon="ion-android-star-outline"></ons-icon>
+                                <br>Restaurant <br>of the day</ons-button>
                         </ons-col>
             </ons-row>
         </ons-page>
