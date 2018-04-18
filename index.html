@@ -40,64 +40,188 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/discover.js"></script>
     <link rel="stylesheet" type="text/css" href="css/discover.css">
+    <script type="text/javascript" src="js/promotion.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/promotion.css">
     <title></title>
 </head>
 
 <body>
-    <ons-navigator id="myNavigator" page="index.html">
+    <ons-navigator swipeable id="myNavigator" page="index.html">
         <ons-page>
-            <ons-tabbar position="bottom">
-                <ons-tab page="index.html" label="Home" icon="ion-home, material:md-home" badge="7"
-                    active>
-                </ons-tab>
-                <ons-tab page="setting.html" label="Discover" icon="ion-help">
-                </ons-tab>
-                <ons-tab page="promotion.html" label="Promotions" icon="ion-speakerphone">
-                </ons-tab>
-                <ons-tab page="discover.html" label="Discover" icon="ion-fireball">
-                </ons-tab>
-                <ons-tab page="setting.html" label="Settings" icon="md-settings">
-                </ons-tab>
-            </ons-tabbar>
+          <ons-tabbar position="bottom">
+              <ons-tab page="index.html" label="Home" icon="ion-home, material:md-home"
+                  active>
+              </ons-tab>
+              <ons-tab page="setting.html" label="Discover" icon="ion-help">
+              </ons-tab>
+              <ons-tab page="promotion.html" label="Promotions" icon="ion-speakerphone">
+              </ons-tab>
+              <ons-tab page="discover.html" label="Discover" icon="ion-fireball">
+              </ons-tab>
+              <ons-tab page="setting.html" label="Settings" icon="md-settings">
+              </ons-tab>
+          </ons-tabbar>
         </ons-page>
     </ons-navigator>
+
     <template id="index.html">
         <ons-page id="index">
-            <img src="img/logo.png" id="logo">
+            <div id="logo">
+
+                <p id="eatwhere">EatWhere</p>
+
+            </div>
             <form action="search-result.html" method="GET">
                 <p class="search-input-p">
                     <ons-search-input placeholder="Search" name="query" modifier="material"></ons-search-input>
+                    <input id="filter-search" type="hidden" name="filter" value="123">
                 </p>
             </form>
-            <button>
-                <a href="test.html">Test</a>
-            </button>
+            <ons-button modifier="large--quiet" id="advanced" ripple>Filter</ons-button>
             <ons-row>
-                <ons-col class="column" width="80%">
-                    <ons-row>
                         <ons-col>
-                            <ons-button modifier="large--quiet" id="navigation-button-1" ripple>Near me</ons-button>
+                              <ons-button class="core-feature" modifier="large--quiet" id="navigation-button-1" ripple><ons-icon size="40px" icon="ion-compass"></ons-icon>
+                                <br> Near me</ons-button>
                         </ons-col>
                         <ons-col>
-                            <ons-button modifier="large--quiet" id="navigation-button-2" ripple>Discover</ons-button>
+                              <ons-button class="core-feature" modifier="large--quiet" id="navigation-button-2" ripple><ons-icon size="40px" icon="ion-paper-airplane"></ons-icon>
+                                <br>Discover</ons-button>
                         </ons-col>
-                    </ons-row>
-                </ons-col>
             </ons-row>
             <ons-row>
-                <ons-col class="column" width="80%">
-                    <ons-row>
                         <ons-col>
-                            <ons-button modifier="large--quiet" ripple id="navigation-button-3">Promotions</ons-button>
+                              <ons-button class="core-feature" modifier="large--quiet" id="navigation-button-3" ripple><ons-icon size="40px" icon="fa-bullhorn"></ons-icon>
+                                <br>Promotions</ons-button>
                         </ons-col>
                         <ons-col>
-                            <ons-button modifier="large--quiet" ripple id="navigation-button-4">Restaurant
-                                <br>of the day</ons-button>
+                              <ons-button class="core-feature" modifier="large--quiet" id="navigation-button-4" ripple><ons-icon size="40px" icon="ion-android-star-outline"></ons-icon>
+                                <br>Restaurant <br>of the day</ons-button>
                         </ons-col>
-                    </ons-row>
-                </ons-col>
             </ons-row>
         </ons-page>
+    </template>
+
+    <template id="filter.html">
+      <ons-page id="filter">
+        <ons-toolbar>
+          <div class="left"><ons-back-button>Homepage</ons-back-button></div>
+          <div class="center"></div>
+        </ons-toolbar>
+          <ons-list-title>Area</ons-list-title>
+          <ons-carousel class="carousel-tab" id="area-carousel-1" auto-refresh swipeable item-width="50px">
+            <ons-carousel-item class="filter-carousel-item">
+              <div class="filter-option">
+                <img data-filter="Area1" class="filter-image" src="img/kfc.jpg">
+                <p>Area 1</p>
+              </div>
+            </ons-carousel-item>
+            <ons-carousel-item class="filter-carousel-item">
+              <div class="filter-option">
+                <img data-filter="Area2" class="filter-image" src="img/kfc.jpg">
+                <p>Area 2</p>
+              </div>
+            </ons-carousel-item>
+            <ons-carousel-item class="filter-carousel-item">
+              <div class="filter-option">
+                <img data-filter="Area3" class="filter-image" src="img/kfc.jpg">
+                <p>Area 3</p>
+              </div>
+            </ons-carousel-item>
+            <ons-carousel-item class="filter-carousel-item">
+              <div class="filter-option">
+                <img data-filter="Area4" class="filter-image" src="img/kfc.jpg">
+                <p>Area 4</p>
+              </div>
+            </ons-carousel-item>
+          </ons-carousel>
+          <ons-carousel class="carousel-tab" id="area-carousel-2" auto-refresh swipeable item-width="50px">
+            <ons-carousel-item class="filter-carousel-item">
+              <div class="filter-option">
+                <img data-filter="Area5" class="filter-image" src="img/kfc.jpg">
+                <p>Area 5</p>
+              </div>
+            </ons-carousel-item>
+          </ons-carousel>
+
+
+      <ons-list-title>Cuisine</ons-list-title>
+      <ons-carousel class="carousel-tab" id="cuisine-carousel-1" auto-refresh swipeable item-width="50px">
+        <ons-carousel-item class="filter-carousel-item">
+          <div class="filter-option">
+            <img data-filter="Asian" class="filter-image" src="img/asian.jpg">
+            <p>Asian</p>
+          </div>
+        </ons-carousel-item>
+        <ons-carousel-item class="filter-carousel-item">
+          <div class="filter-option">
+            <img data-filter="European" class="filter-image" src="img/european.jpg">
+            <p>European</p>
+          </div>
+        </ons-carousel-item>
+        <ons-carousel-item class="filter-carousel-item">
+          <div class="filter-option">
+            <img data-filter="American" class="filter-image" src="img/american.jpg">
+            <p>American</p>
+          </div>
+        </ons-carousel-item>
+        <ons-carousel-item class="filter-carousel-item">
+          <div class="filter-option">
+            <img data-filter="African" class="filter-image" src="img/african.jpg">
+            <p>African</p>
+          </div>
+        </ons-carousel-item>
+        </ons-carousel>
+        <ons-carousel class="carousel-tab" id="cuisine-carousel-2" auto-refresh swipeable item-width="50px">
+        <ons-carousel-item class="filter-carousel-item">
+          <div class="filter-option">
+            <img data-filter="Vegan" class="filter-image" src="img/vegan.jpg">
+            <p>Vegan</p>
+          </div>
+        </ons-carousel-item>
+        <ons-carousel-item class="filter-carousel-item">
+          <div class="filter-option">
+            <img data-filter="FastFood" class="filter-image" src="img/fastfood.jpg">
+            <p>Fast Food</p>
+          </div>
+        </ons-carousel-item>
+        <ons-carousel-item class="filter-carousel-item">
+          <div class="filter-option">
+            <img data-filter="SeaFood" class="filter-image" src="img/seafood.jpg">
+            <p>Seafood</p>
+          </div>
+        </ons-carousel-item>
+        <ons-carousel-item class="filter-carousel-item">
+          <div class="filter-option">
+            <img data-filter="Fusion" class="filter-image" src="img/fusion.jpg">
+            <p>Fusion</p>
+          </div>
+        </ons-carousel-item>
+      </ons-carousel>
+
+      <ons-list-title>Price</ons-list-title>
+      <ons-carousel class="carousel-tab" id="price-carousel-1" auto-refresh swipeable item-width="50px">
+        <ons-carousel-item class="filter-carousel-item">
+          <div class="filter-option">
+            <img data-filter="Cheap" class="filter-image" src="img/cheap.png">
+            <p>$</p>
+          </div>
+        </ons-carousel-item>
+        <ons-carousel-item class="filter-carousel-item">
+          <div class="filter-option">
+            <img data-filter="Medium" class="filter-image" src="img/medium.png">
+            <p>$$</p>
+          </div>
+        </ons-carousel-item>
+        <ons-carousel-item class="filter-carousel-item">
+          <div class="filter-option">
+            <img data-filter="Expensive" class="filter-image" src="img/expensive.png">
+            <p>$$$</p>
+          </div>
+        </ons-carousel-item>
+        </ons-carousel>
+
+        <ons-button id="apply-button">Apply Filter</ons-button>
+      </ons-page>
     </template>
     <script src="js/index.js"></script>
 </body>
