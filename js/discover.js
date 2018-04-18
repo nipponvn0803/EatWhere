@@ -17,15 +17,15 @@ function discoverCardEnter() {
 }
 
 function requestSuggestion() {
-    obj = { "table": "customers", "limit": 10 };
-    dbParam = JSON.stringify(obj);
-    xmlhttp = new XMLHttpRequest();
+    var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("demo").innerHTML = this.responseText;
+            var myObj = JSON.parse(this.responseText);
+            document.getElementById("demo").innerHTML = myObj.name;
         }
     };
-    xmlhttp.open("GET", "json_demo_db.php?x=" + dbParam, true);
+    var id = document.getElementById("discover-restaurant-name").dataset.id;
+    xmlhttp.open("GET", "discover.php?id=" + id, true);
     xmlhttp.send();
 }
 
@@ -53,16 +53,16 @@ ons.ready(function () {
 
     document.getElementById("discover-skip-button").onclick = function () {
         discoverCardLeave();
-        window.setTimeout(function() {
+        window.setTimeout(function () {
             displayRestaurantSuggestion("Hesburger", 4.5, "Made in Finland",
-        "https://www.hesburger.fi/clients/hesburger/output/ravintolakuva.php?id=10993",
-            "Roberts", "It sucks!");
+                "https://www.hesburger.fi/clients/hesburger/output/ravintolakuva.php?id=10993",
+                "Roberts", "It sucks!");
             var img = document.getElementById("discover-img");
             if (img.complete != true) {
                 var progress = document.getElementById("discover-progress");
                 progress.style.opacity = 0;
                 progress.style.opacity = 1;
-                img.addEventListener("load", function() {
+                img.addEventListener("load", function () {
                     progress.style.opacity = 0;
                     discoverCardEnter();
                 });
