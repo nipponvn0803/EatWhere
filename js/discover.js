@@ -17,22 +17,38 @@ function discoverCardEnter() {
 }
 
 function requestSuggestion() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var myObj = JSON.parse(this.responseText);
-            document.getElementById("demo").innerHTML = myObj.name;
-        }
-    };
     var id = document.getElementById("discover-restaurant-name").dataset.id;
-    xmlhttp.open("GET", "discover.php?id=" + id, true);
-    xmlhttp.send();
+    var s = document.createElement("script");
+    s.src = "http://localhost:90/discover.php?id=" + id;
+    document.body.appendChild(s);
+}
+
+function handleSuggestion(data) {
+    document.getElementById("discover-restaurant-name").dataset.id = data.id;
+    console.log(data);
+    displayRestaurantSuggestion(data.name, data.rating, data.descirption,
+        data.imageUrl, data.userName, data.review);
+    window.setTimeout(function () {
+        var img = document.getElementById("discover-img");
+        if (img.complete != true) {
+            var progress = document.getElementById("discover-progress");
+            progress.style.opacity = 0;
+            progress.style.opacity = 1;
+            img.addEventListener("load", function () {
+                progress.style.opacity = 0;
+                discoverCardEnter();
+            });
+        } else
+            discoverCardEnter();
+    }, 195);
 }
 
 function displayRestaurantSuggestion(name, rating, description, imgUrl, reviewUser,
     reviewContent) {
     document.getElementById("discover-restaurant-name").innerHTML = name;
-    document.getElementById("discover-description").innerHTML = description;
+    if (description != "") {
+        document.getElementById("discover-description").innerHTML = description;
+    }
     document.getElementById("discover-img").src = imgUrl;
     document.getElementById("discover-review-user").innerHTML = reviewUser;
     document.getElementById("discover-review-content").innerHTML = reviewContent;
@@ -53,21 +69,6 @@ ons.ready(function () {
 
     document.getElementById("discover-skip-button").onclick = function () {
         discoverCardLeave();
-        window.setTimeout(function () {
-            displayRestaurantSuggestion("Hesburger", 4.5, "Made in Finland",
-                "https://www.hesburger.fi/clients/hesburger/output/ravintolakuva.php?id=10993",
-                "Roberts", "It sucks!");
-            var img = document.getElementById("discover-img");
-            if (img.complete != true) {
-                var progress = document.getElementById("discover-progress");
-                progress.style.opacity = 0;
-                progress.style.opacity = 1;
-                img.addEventListener("load", function () {
-                    progress.style.opacity = 0;
-                    discoverCardEnter();
-                });
-            } else
-                discoverCardEnter();
-        }, 195);
+        requestSuggestion();
     };
 });
