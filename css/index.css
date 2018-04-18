@@ -31,48 +31,88 @@ body {
     width:100%;
 }
 
-img {
-    margin: auto;
-    display:block;
-    max-width: 100%;
-}
-
 .search-input-p {
     text-align: center;
     margin-top: 10px;
 }
 
-.column { margin: auto; }
+@media screen and (max-width: 500px) {
+  #advanced{
+    background-color: white;
+    color: black;
+    width: 30%;
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: 0.9rem;
+  }
 
-#navigation-button-1 {
-    border: lightgray solid;
-    border-width: 0 0.02px 0.02px 0;
-    border-radius: 0;
-}
+  .core-feature{
+    color: white;
+    margin-top: 15%;
+    padding: 0;
+    line-height: 1.2;
+  }
 
-#navigation-button-2 {
-    border: lightgray solid;
-    border-width: 0 0 0.02px 0;
-    border-radius: 0;
-}
-
-#navigation-button-3 {
-    padding-top: 7px;
-    padding-bottom: 10px;
-    border: lightgray solid;
-    border-width: 0 0.02px 0 0;
-    border-radius: 0;
-}
-
-#navigation-button-4 { 
-    padding-bottom: 7px;
-    padding-top: 10px;
-    line-height:130%;
-}
-
-@media screen and (orientation:landscape) { 
-    #logo {
-        width: auto;
-        height: 100px;
+  #index  .page__background{
+      background-image: url(../img/cover.png);
+      background-size: cover;
     }
+
+  #logo{
+    height:30%;
+  }
+
+  #eatwhere{
+    font-family:        Street;
+    font-size:          60px;
+    text-align:         center;
+    margin:             0;
+    color: white;
+    padding-top: 12%;
+    transition: all 0.6s;
+  }
+  /*EatWhere logo smaller when input is selected*/
+  #eatwhere.focused{
+    font-size: 30px;
+  }
+  input[type="search"]{
+    transition: all 0.6s;
+  }
+  img {
+      margin: auto;
+      display:block;
+      max-width: 100%;
+  }
+  }
+}
+
+.carousel-tab{
+  text-align: center;
+}
+
+.filter-carousel-item{
+  margin:auto;
+}
+
+.filter-image{
+  width: 50px;
+  height: 50px;
+  border-radius: 40%;
+}
+
+#apply-button{
+  position: fixed;
+  bottom: 5%;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.active-image{
+  border: 3px solid green;
+}
+
+@font-face {
+    font-family: Street;
+    src: url(../Font/Street.ttf);
 }
