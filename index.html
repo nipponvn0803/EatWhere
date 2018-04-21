@@ -29,7 +29,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-    <meta http-equiv="Content-Security-Policy" content="default-src https://unpkg.com/ 'self' http://localhost:90/ data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://unpkg.com/; media-src *; img-src https: http: 'self' data: content:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src https://unpkg.com/ 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://unpkg.com/; media-src *; img-src https: 'self' data: content:;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -107,122 +107,144 @@
           <div class="left"><ons-back-button>Homepage</ons-back-button></div>
           <div class="center"></div>
         </ons-toolbar>
-          <ons-list-title>Area</ons-list-title>
-          <ons-carousel class="carousel-tab" id="area-carousel-1" auto-refresh swipeable item-width="50px">
-            <ons-carousel-item class="filter-carousel-item">
-              <div class="filter-option">
-                <img data-filter="Area1" class="filter-image" src="img/kfc.jpg">
-                <p>Area 1</p>
-              </div>
-            </ons-carousel-item>
-            <ons-carousel-item class="filter-carousel-item">
-              <div class="filter-option">
-                <img data-filter="Area2" class="filter-image" src="img/kfc.jpg">
-                <p>Area 2</p>
-              </div>
-            </ons-carousel-item>
-            <ons-carousel-item class="filter-carousel-item">
-              <div class="filter-option">
-                <img data-filter="Area3" class="filter-image" src="img/kfc.jpg">
-                <p>Area 3</p>
-              </div>
-            </ons-carousel-item>
-            <ons-carousel-item class="filter-carousel-item">
-              <div class="filter-option">
-                <img data-filter="Area4" class="filter-image" src="img/kfc.jpg">
-                <p>Area 4</p>
-              </div>
-            </ons-carousel-item>
-          </ons-carousel>
-          <ons-carousel class="carousel-tab" id="area-carousel-2" auto-refresh swipeable item-width="50px">
+        <ons-list-header>Area</ons-list-header>
+          <ons-list-item>
+            <div class="center">Area 1</div>
+            <div class="right">
+              <ons-switch></ons-switch>
+            </div>
+          </ons-list-item>
+          <ons-list-item>
+            <div class="center">Area 2</div>
+            <div class="right">
+              <ons-switch></ons-switch>
+            </div>
+          </ons-list-item>
+          <ons-list-item>
+            <div class="center">Area 3</div>
+            <div class="right">
+              <ons-switch></ons-switch>
+            </div>
+          </ons-list-item>
+          <ons-list-item>
+            <div class="center">Area 4</div>
+            <div class="right">
+              <ons-switch></ons-switch>
+            </div>
+          </ons-list-item>
+
+          <!-- <ons-carousel class="carousel-tab" id="area-carousel-2" auto-refresh swipeable item-width="50px">
             <ons-carousel-item class="filter-carousel-item">
               <div class="filter-option">
                 <img data-filter="Area5" class="filter-image" src="img/kfc.jpg">
                 <p>Area 5</p>
               </div>
             </ons-carousel-item>
-          </ons-carousel>
+          </ons-carousel> -->
 
 
       <ons-list-title>Cuisine</ons-list-title>
-      <ons-carousel class="carousel-tab" id="cuisine-carousel-1" auto-refresh swipeable item-width="50px">
-        <ons-carousel-item class="filter-carousel-item">
-          <div class="filter-option">
+        <ons-list-item>
+          <div class="left">
             <img data-filter="Asian" class="filter-image" src="img/asian.jpg">
-            <p>Asian</p>
           </div>
-        </ons-carousel-item>
-        <ons-carousel-item class="filter-carousel-item">
-          <div class="filter-option">
+          <div class="center" style="margin-left: 10px;">Asian</div>
+          <div class="right">
+            <ons-switch data-filter="Asian" class="filter-switch"></ons-switch>
+          </div>
+        </ons-list-item>
+        <ons-list-item>
+          <div class="left">
             <img data-filter="European" class="filter-image" src="img/european.jpg">
-            <p>European</p>
           </div>
-        </ons-carousel-item>
-        <ons-carousel-item class="filter-carousel-item">
-          <div class="filter-option">
+          <div class="center" style="margin-left: 10px;">European</div>
+          <div class="right">
+            <ons-switch data-filter="European" class="filter-switch"></ons-switch>
+          </div>
+        </ons-list-item>
+        <ons-list-item>
+          <div class="left">
             <img data-filter="American" class="filter-image" src="img/american.jpg">
-            <p>American</p>
           </div>
-        </ons-carousel-item>
-        <ons-carousel-item class="filter-carousel-item">
-          <div class="filter-option">
+          <div class="center" style="margin-left: 10px;">American</div>
+          <div class="right">
+            <ons-switch data-filter="American" class="filter-switch"></ons-switch>
+          </div>
+        </ons-list-item>
+        <ons-list-item>
+          <div class="left">
             <img data-filter="African" class="filter-image" src="img/african.jpg">
-            <p>African</p>
           </div>
-        </ons-carousel-item>
-        </ons-carousel>
-        <ons-carousel class="carousel-tab" id="cuisine-carousel-2" auto-refresh swipeable item-width="50px">
-        <ons-carousel-item class="filter-carousel-item">
-          <div class="filter-option">
-            <img data-filter="Vegan" class="filter-image" src="img/vegan.jpg">
-            <p>Vegan</p>
+          <div class="center" style="margin-left: 10px;">African</div>
+          <div class="right">
+            <ons-switch data-filter="African" class="filter-switch"></ons-switch>
           </div>
-        </ons-carousel-item>
-        <ons-carousel-item class="filter-carousel-item">
-          <div class="filter-option">
+        </ons-list-item>
+
+        <ons-list-item>
+          <div class="left">
+            <img data-filter="Vegan" class="filter-image" src="img/Vegan.jpg">
+          </div>
+          <div class="center" style="margin-left: 10px;">Vegan</div>
+          <div class="right">
+            <ons-switch data-filter="Vegan" class="filter-switch"></ons-switch>
+          </div>
+        </ons-list-item>
+        <ons-list-item>
+          <div class="left">
             <img data-filter="FastFood" class="filter-image" src="img/fastfood.jpg">
-            <p>Fast Food</p>
           </div>
-        </ons-carousel-item>
-        <ons-carousel-item class="filter-carousel-item">
-          <div class="filter-option">
-            <img data-filter="SeaFood" class="filter-image" src="img/seafood.jpg">
-            <p>Seafood</p>
+          <div class="center" style="margin-left: 10px;">Fast Food</div>
+          <div class="right">
+            <ons-switch data-filter="FastFood" class="filter-switch"></ons-switch>
           </div>
-        </ons-carousel-item>
-        <ons-carousel-item class="filter-carousel-item">
+        </ons-list-item>
+
+        <!-- <ons-carousel-item class="filter-carousel-item">
           <div class="filter-option">
             <img data-filter="Fusion" class="filter-image" src="img/fusion.jpg">
             <p>Fusion</p>
           </div>
-        </ons-carousel-item>
-      </ons-carousel>
+        </ons-carousel-item> -->
 
-      <ons-list-title>Price</ons-list-title>
-      <ons-carousel class="carousel-tab" id="price-carousel-1" auto-refresh swipeable item-width="50px">
-        <ons-carousel-item class="filter-carousel-item">
-          <div class="filter-option">
-            <img data-filter="Cheap" class="filter-image" src="img/cheap.png">
-            <p>$</p>
-          </div>
-        </ons-carousel-item>
-        <ons-carousel-item class="filter-carousel-item">
-          <div class="filter-option">
-            <img data-filter="Medium" class="filter-image" src="img/medium.png">
-            <p>$$</p>
-          </div>
-        </ons-carousel-item>
-        <ons-carousel-item class="filter-carousel-item">
-          <div class="filter-option">
-            <img data-filter="Expensive" class="filter-image" src="img/expensive.png">
-            <p>$$$</p>
-          </div>
-        </ons-carousel-item>
-        </ons-carousel>
+        <ons-list-header>Price</ons-list-header>
+          <ons-list-item>
+            <div class="left">
+              <ons-icon icon="md-money" class="list-item__icon"></ons-icon>
+            </div>
+            <div class="right">
+              <ons-switch data-filter="Cheap" class="filter-switch"></ons-switch>
+            </div>
+          </ons-list-item>
 
+          <ons-list-item>
+            <div class="left">
+              <ons-icon icon="md-money" class="list-item__icon"></ons-icon>
+              <ons-icon icon="md-money" class="list-item__icon"></ons-icon>
+            </div>
+            <div class="right">
+              <ons-switch data-filter="Medium" class="filter-switch"></ons-switch>
+            </div>
+          </ons-list-item>
+
+          <ons-list-item>
+            <div class="left">
+              <ons-icon icon="md-money" class="list-item__icon"></ons-icon>
+              <ons-icon icon="md-money" class="list-item__icon"></ons-icon>
+              <ons-icon icon="md-money" class="list-item__icon"></ons-icon>
+            </div>
+            <div class="right">
+              <ons-switch data-filter="Expensive" class="filter-switch"></ons-switch>
+            </div>
+          </ons-list-item>
+          <div id="bottom-div">
+
+          </div>
         <ons-button id="apply-button">Apply Filter</ons-button>
       </ons-page>
     </template>
+
+
     <script src="js/index.js"></script>
 </body>
 
