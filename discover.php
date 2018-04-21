@@ -31,6 +31,7 @@ $ratingSum = 0;
 $numOfReviews = 0;
 $userId = null;
 $review = "";
+$rating = null;
 if ($result !== false) {
     while ($row = $result->fetch_assoc()) {
         $ratingSum += $row["rating"];
