@@ -21,8 +21,8 @@ if (isset($_GET['action'])) {
 
         if ($action === "menu") {
             $restaurant->getMenu($restaurant_id);
-        } elseif ($action === "address") {
-            $restaurant->getAddress($restaurant_id);
+        } elseif ($action === "review") {
+            $restaurant->getReview($restaurant_id);
         } else {
             echo "Please provide correct action";
         }
