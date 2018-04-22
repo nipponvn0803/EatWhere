@@ -37,7 +37,7 @@ function requestSuggestion() {
 }
 
 function handleSuggestion(data) {
-    id(data.id !== null) {
+    if (data.id !== null) {
         document.getElementById("discover-restaurant-name").dataset.id = data.id;
         document.getElementById("discover-progress").style.opacity = 1;
         displayRestaurantSuggestion(data.name, data.rating, data.description,
