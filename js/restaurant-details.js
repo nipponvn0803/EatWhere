@@ -37,19 +37,16 @@ $(function(){
 
     $.ajax({
         method: "GET",
-        url: "http://localhost/EatWhere/restaurant-index.php?action=menu&restaurant_id=" + params.restaurant_id
+        url: "http://localhost/EatWhere/restaurant-index.php?action=details&restaurant_id=" + params.restaurant_id
     })
-    .done(function(dishes) {
-        console.log(dishes);
-        var image = "";
+    .done(function(response) {
+
+        var dishes = response.menu;
+        var image = response.image;
         var finalResult = "";
 
-        // dishes.forEach(function(dish){
-        //   var image ='<div class="image-wrapper"> \
-        //                 <img src="'+ dish.image +'" width="300" height="300" alt=""> \
-        //               </div>';
-        // });
-        // $('#image-wrap').append(image);
+        // Set restaurant image
+        $('#restaurant-image').attr('src', image);
 
         dishes.forEach(function(dish) {
             var menu =  '<ons-list-item tappable> \

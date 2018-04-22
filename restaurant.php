@@ -13,11 +13,31 @@ class Restaurant {
         $this->conn = $db;
     }
 
-    public function getMenu($res_id) {
+    public function getRestaurantImage($res_id) {
         // Defined query
-        // $query = "SELECT * FROM ".$this->dishes_table_name." WHERE restaurant_id=".$res_id;
-        $query = "SELECT Dishes.dish_name, Dishes.desc, Dishes.price, Dishes.img_link, Restaurants.image, Restaurants.restaurant_id FROM Restaurants INNER JOIN Dishes ON Restaurants.restaurant_id = Dishes.restaurant_id GROUP BY dish_id HAVING restaurant_id=".$res_id;
-        //Perform queries
+        $query = "SELECT Restaurants.image FROM Restaurants WHERE restaurant_id=" . $res_id . ";";
+
+        // Perform queries
+        $result = mysqli_query($this->conn, $query);
+
+        if (!$result) {
+            var_dump($result);
+        }
+
+        // Processing and return results in JSON
+        $restaurant_image;
+        while($row =  mysqli_fetch_row($result)) {
+            $restaurant_image = $row[0];
+        }
+
+        return $restaurant_image;
+    }
+
+    public function getRestaurantMenu($res_id) {
+        // Defined query
+        $query = "SELECT Dishes.dish_name, Dishes.desc, Dishes.price, Dishes.img_link FROM Dishes WHERE restaurant_id=" . $res_id . ";";
+
+        // Perform queries
         $result = mysqli_query($this->conn, $query);
 
         if (!$result) {
@@ -29,10 +49,17 @@ class Restaurant {
         while($row = mysqli_fetch_assoc($result)) {
             $restaurant_menu[] = $row;
         }
-        echo json_encode($restaurant_menu);
 
-        // Close the db connection
-        mysqli_close($this->conn);
+        return $restaurant_menu;
+    }
+
+    public function getRestaurantDetail($res_id) {
+
+        $restaurant_details = new stdClass;
+        $restaurant_details->image = $this->getRestaurantImage($res_id);
+        $restaurant_details->menu = $this->getRestaurantMenu($res_id);
+
+        echo json_encode($restaurant_details);
     }
 
     public function getReview($res_id) {
