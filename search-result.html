@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
-    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
-    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
 
-    <title></title>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
 
-  </head>
-  <body>
-      <ons-page>
-        <ons-list>
-            <div id="search_result">
+  <title></title>
 
-            </div>
-        </ons-list>
-      </ons-page>
+</head>
 
-    <script type="text/javascript">
+<body>
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button>
+          <ons-back-button href="##" onClick="history.go(-1); return false;">Back</ons-back-button>
+        </ons-toolbar-button>
+      </div>
+    </ons-toolbar>
+    <ons-list>
+      <div id="search_result">
+
+      </div>
+    </ons-list>
+  </ons-page>
+
+  <script type="text/javascript">
     //return an array of element with class "center"
     var center = document.getElementsByClassName("center");
 
     //get restaurant detail from database
     function loadRestDetails(id, userFilter) {
 
-      xmlhttp=new XMLHttpRequest();
+      xmlhttp = new XMLHttpRequest();
 
-      xmlhttp.onreadystatechange=function() {
-        if (this.readyState==4 && this.status==200) {
-          document.getElementById("search_result").innerHTML=this.responseText;
+      xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("search_result").innerHTML = this.responseText;
 
 
           console.log(filter);
@@ -37,12 +46,12 @@
         }
       }
       //xmlhttp.open("GET","http://www.students.oamk.fi/~t6trso00/EatWhere/data.php?query="+id,true);
-      xmlhttp.open("GET","http://www.students.oamk.fi/~t6plro00/EatWhere/data.php?query=" + id, true);
+      xmlhttp.open("GET", "http://www.students.oamk.fi/~t6plro00/EatWhere/data.php?query=" + id, true);
       xmlhttp.send();
     }
 
 
-	///////////////////////////////////////
+    ///////////////////////////////////////
     // Start params processing from URL
     //////////////////////////////////////
 
@@ -57,7 +66,7 @@
           typeof item;
 
           var paramKey,
-              paramValue;
+            paramValue;
 
           var temp = item.split("=");
 
@@ -91,7 +100,7 @@
       var filter = "";
     }
 
-	var currentUrl = location.search;
+    var currentUrl = location.search;
     var params = getParams(currentUrl);
 
     window.onload = loadRestDetails(params.query, params.filter);
@@ -101,10 +110,11 @@
       x.lastElementChild.style.display = "inline";
     }
 
-    function Hide(x){
+    function Hide(x) {
       x.lastElementChild.style.display = "none";
     }
 
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>

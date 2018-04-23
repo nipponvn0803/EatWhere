@@ -11,11 +11,11 @@ ons.ready(function () {
     });
 
     document.getElementById("discover-details-button").onclick = function () {
-        var id = document.getElementById("discover-restaurant-name").dataset.id;
+        var id = document.getElementById("discover-restaurant-name").dataset.id
 
         window.location = "restaurant-detail.html?restaurant_id="
-            + (document.getElementById("discover-restaurant-name").dataset.id ? 6 
-            : document.getElementById("discover-restaurant-name").dataset.id)
+            + (document.getElementById("discover-restaurant-name").dataset.id == 0 
+            ? 6 : document.getElementById("discover-restaurant-name").dataset.id)
             + "&restaurant_address=" 
             + document.getElementById("discover-restaurant-name").dataset.address
             + "&restaurant_name=" 
