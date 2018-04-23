@@ -38,23 +38,25 @@
 
       echo "<ons-list-item modifier=\"longdivider\" class=\"item\">";
       echo "<div class=\"left\">";
-      echo "<img class=\"list-item__thumbnail\" src=\"img/kfc.jpg\">";
+      echo "<img class=\"list-item__thumbnail\" src=\"$row[2]\">";
       echo "</div>";
 
       echo "<div class=\"center\">";
       echo "<span class=\"list-item__title\">$row[0]</span>";
       echo "<span class=\"list-item__subtitle\">$row[1]</span>";
-      echo "<span class=\"list-item__subtitle\">$row[4]</span>";
 
       //form submit restaurant id
+      echo "<span class=\"list-item__subtitle\">";
       echo "<form action=\"restaurant-detail.html\" method=\"GET\">";
       echo "<input type=\"hidden\" value=\"$row[3]\" name=\"restaurant_id\"></input>";
       echo "<input type=\"hidden\" value=\"$row[1]\" name=\"restaurant_address\"></input>";
       echo "<input type=\"hidden\" value=\"$row[0]\" name=\"restaurant_name\"></input>";
-      echo "<input type=\"submit\" value=\"Submit\">";
-      echo "</form>";
+      echo "<input type=\"submit\" value=\"More details\" class=\"button--quiet\" ripple></input>";
+      echo "</form></span>";
       echo "</div>";
       echo "</ons-list-item>";
+
+      echo "<link rel=\"stylesheet\" href=\"css/search-result.css\">";
     }
 
   mysqli_close($connection);
