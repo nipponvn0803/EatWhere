@@ -22,11 +22,6 @@
     <script type="text/javascript">
     //return an array of element with class "center"
     var center = document.getElementsByClassName("center");
-    function HideAll() {
-      for (var i = 0; i < center.length; i++) {
-        center[i].lastElementChild.style.display = "none";
-      }
-    }
 
     //get restaurant detail from database
     function loadRestDetails(id, userFilter) {
@@ -37,38 +32,17 @@
         if (this.readyState==4 && this.status==200) {
           document.getElementById("search_result").innerHTML=this.responseText;
 
-          //Hide all reviews
-          HideAll();
+
           console.log(filter);
           console.log(query);
-
-          let listItem = Array.from(document.querySelectorAll('.item'));
-
-          //remove class "active" when aother div is clicked, hide reviews
-          const handleClick = (e) => {
-            e.preventDefault();
-            listItem.forEach(node => {
-              node.classList.remove('active');
-              var target = node.lastElementChild;
-              Hide(target);
-            });
-            // add class "active" when clicked, show reviews
-            e.currentTarget.classList.add('active');
-            var target = e.currentTarget.lastElementChild;
-            Expand(target);
-          }
-
-          listItem.forEach(node => {
-            node.addEventListener('click', handleClick)
-          });
         }
       }
       //xmlhttp.open("GET","http://www.students.oamk.fi/~t6trso00/EatWhere/data.php?query="+id,true);
       xmlhttp.open("GET","data.php?query="+id,true);
       xmlhttp.send();
     }
-	
-	
+
+
 	///////////////////////////////////////
     // Start params processing from URL
     //////////////////////////////////////
@@ -117,7 +91,7 @@
     else {
       var filter = "";
     }
-	
+
 	var currentUrl = location.search;
     var params = getParams(currentUrl);
 

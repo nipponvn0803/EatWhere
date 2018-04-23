@@ -14,7 +14,7 @@
   or die ("no database");
 
   // Search for restaurant name/addess/tag that match the search query
-  $result = mysqli_query($connection, "SELECT restaurant_name, address, image, restaurant_id
+  $result = mysqli_query($connection, "SELECT restaurant_name, address, image, restaurant_id, rating
     FROM Restaurants
     WHERE restaurant_name LIKE '%{$query}%'
     OR tag LIKE '%{$query}%'
@@ -35,30 +35,25 @@
           LEFT JOIN Users ON Reviews.user_id = Users.user_id
           WHERE Reviews.restaurant_id = '{$row[3]}'");
 
-      echo "<ons-list-item class=\"item\">";
+      echo "<ons-list-item modifier=\"longdivider\" class=\"item\">";
       echo "<div class=\"left\">";
-      echo "<img class=\"list-item__thumbnail\" src=\"$row[2]\">";
+      echo "<img class=\"list-item__thumbnail\" src=\"img/kfc.jpg\">";
       echo "</div>";
 
       echo "<div class=\"center\">";
-      echo "<form action=\"restaurant-detail.html\" method=\"GET\">";
-	  echo "<p class=\"search-input-p\">";
-      echo "<ons-search-input value=\"$row[3]\" name=\"restaurant_id\" modifier=\"material\"></ons-search-input>";
-	  echo "<input type=\"hidden\" name=\"restaurant_address\" value=\"$row[1]\"></input>";
-	  echo "<input type=\"hidden\" name=\"restaurant_name\" value=\"$row[0]\"></input>";
-	  echo "</p>";
-      echo "</form>";
       echo "<span class=\"list-item__title\">$row[0]</span>";
       echo "<span class=\"list-item__subtitle\">$row[1]</span>";
-      echo "<span class=\"list-item__subtitle\">";
-      while ($small_row = mysqli_fetch_row($small_result)) {
-        echo $small_row[2].": ".$small_row[0];
-        echo "<br>";
-      }
-      echo "</span>";
+      echo "<span class=\"list-item__subtitle\">$row[4]</span>";
 
-      echo "</div>
-      </ons-list-item>";
+      //form submit restaurant id
+      echo "<form action=\"restaurant-detail.html\" method=\"GET\">";
+      echo "<input type=\"hidden\" value=\"$row[3]\" name=\"restaurant_id\"></input>";
+      echo "<input type=\"hidden\" value=\"$row[1]\" name=\"restaurant_address\"></input>";
+      echo "<input type=\"hidden\" value=\"$row[0]\" name=\"restaurant_name\"></input>";
+      echo "<input type=\"submit\" value=\"Submit\">";
+      echo "</form>";
+      echo "</div>";
+      echo "</ons-list-item>";
     }
 
   mysqli_close($connection);
