@@ -35,9 +35,11 @@ $(function(){
     // End params processing from URL
     ///////////////////////////////////
 
+    console.log(params.restaurant_id);
+
     $.ajax({
         method: "GET",
-        url: "http://localhost/EatWhere/restaurant-index.php?action=details&restaurant_id=" + params.restaurant_id
+        url: "http://www.students.oamk.fi/~t6plro00/EatWhere/restaurant-index.php?action=details&restaurant_id=" + params.restaurant_id
     })
     .done(function(response) {
 
@@ -72,7 +74,7 @@ $(function(){
 
   $.ajax({
       method: "GET",
-      url: "http://localhost/EatWhere/restaurant-index.php?action=review&restaurant_id=" + params.restaurant_id
+      url: "http://www.students.oamk.fi/~t6plro00/EatWhere/restaurant-index.php?action=review&restaurant_id=" + params.restaurant_id
   })
   .done(function(reviews) {
       console.log(reviews);
