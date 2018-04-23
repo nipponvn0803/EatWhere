@@ -4,7 +4,7 @@
 
 
   // Opens a connection to a MySQL server.
-  $connection=mysqli_connect ("$servername", $username, $password);
+  $connection=mysqli_connect ("$servername", $username, $password, $database);
   if (!$connection) {
     die('Not connected : ' . mysqli_error());
   }
@@ -42,8 +42,11 @@
 
       echo "<div class=\"center\">";
       echo "<form action=\"restaurant-detail.html\" method=\"GET\">";
-      echo "<input value=\"$row[3]\" name=\"id\" modifier=\"material\"></input>";
-      echo "<input type=\"submit\" value\"Submit\">";
+	  echo "<p class=\"search-input-p\">";
+      echo "<ons-search-input value=\"$row[3]\" name=\"restaurant_id\" modifier=\"material\"></ons-search-input>";
+	  echo "<input type=\"hidden\" name=\"restaurant_address\" value=\"$row[1]\"></input>";
+	  echo "<input type=\"hidden\" name=\"restaurant_name\" value=\"$row[0]\"></input>";
+	  echo "</p>";
       echo "</form>";
       echo "<span class=\"list-item__title\">$row[0]</span>";
       echo "<span class=\"list-item__subtitle\">$row[1]</span>";

@@ -67,6 +67,39 @@
       xmlhttp.open("GET","data.php?query="+id,true);
       xmlhttp.send();
     }
+	
+	
+	///////////////////////////////////////
+    // Start params processing from URL
+    //////////////////////////////////////
+
+    function getParams(url) {
+      var params = {};
+
+      // Remove "?" from the string
+      url
+        .substr(1)
+        .split("&")
+        .forEach(function (item) {
+          typeof item;
+
+          var paramKey,
+              paramValue;
+
+          var temp = item.split("=");
+
+          paramKey = temp[0];
+          paramValue = temp[1];
+
+          params[paramKey] = paramValue;
+        });
+
+      return params;
+    }
+
+    ////////////////////////////////////
+    // End params processing from URL
+    ///////////////////////////////////
 
 
     //split query and filter
@@ -84,9 +117,11 @@
     else {
       var filter = "";
     }
+	
+	var currentUrl = location.search;
+    var params = getParams(currentUrl);
 
-
-    window.onload = loadRestDetails(query, filter);
+    window.onload = loadRestDetails(params.query, params.filter);
 
     //show last child element
     function Expand(x) {

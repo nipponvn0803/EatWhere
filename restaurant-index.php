@@ -19,10 +19,10 @@ if (isset($_GET['action'])) {
 
         $restaurant_id = $_GET['restaurant_id'];
 
-        if ($action === "menu") {
-            $restaurant->getMenu($restaurant_id);
-        } elseif ($action === "address") {
-            $restaurant->getAddress($restaurant_id);
+        if ($action === "details") {
+            $restaurant->getRestaurantDetail($restaurant_id);
+        } elseif ($action === "review") {
+            $restaurant->getReview($restaurant_id);
         } else {
             echo "Please provide correct action";
         }
