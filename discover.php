@@ -4,14 +4,11 @@ require("connection.php");
 header("Content-Type: application/json; charset=UTF-8");
 $id = $_GET["id"] + 1;
 
-$db_selected = mysqli_select_db($conn, $database)
-  or die ("no database");
-
 // fetch the next restaurant suggestion
 $name = "";
 $imageUrl = null;
 $description = "";
-$result = mysqli_query($conn, "SELECT restaurant_id, restaurant_name, image, 
+$result = mysqli_query($conn, "SELECT restaurant_id, restaurant_name, image, address,
     description FROM Restaurants WHERE restaurant_id = {$id}");
 if ($result !== false) {
     $row = $result->fetch_assoc();
@@ -19,6 +16,7 @@ if ($result !== false) {
     $name = $row["restaurant_name"];
     $imageUrl = $row["image"];
     $description = $row["description"];
+    $address = $row["address"];
     $result->free();
 } else {
     $id = null;
@@ -65,5 +63,6 @@ $output = array(
     "rating"      => $rating,
     "userName"    => $userName,
     "review"      => $review,
+    "address"     => $address
 );
 echo "handleSuggestion(".json_encode($output).")";

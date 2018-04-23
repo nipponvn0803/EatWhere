@@ -9,7 +9,31 @@ ons.ready(function () {
         document.getElementById("discover-progress").style.opacity = 0;
         discoverCardEnter();
     });
+
+    document.getElementById("discover-details-button").onclick = function () {
+        var id = document.getElementById("discover-restaurant-name").dataset.id;
+
+        window.location = "restaurant-detail.html?restaurant_id="
+            + (document.getElementById("discover-restaurant-name").dataset.id ? 6 
+            : document.getElementById("discover-restaurant-name").dataset.id)
+            + "&restaurant_address=" 
+            + document.getElementById("discover-restaurant-name").dataset.address
+            + "&restaurant_name=" 
+            + document.getElementById("discover-restaurant-name").innerHTML;
+    };
 });
+
+document.addEventListener('init', function(event) {
+    var page = event.target;
+  
+    if (page.id === 'page1') {
+      page.querySelector('#push-button').onclick = function() {
+        document.querySelector('#myNavigator').pushPage('page2.html', {data: {title: 'Page 2'}});
+      };
+    } else if (page.id === 'page2') {
+      page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
+    }
+  });
 
 function discoverCardLeave() {
     var col = document.getElementById("discover-col");
@@ -39,6 +63,8 @@ function requestSuggestion() {
 function handleSuggestion(data) {
     if (data.id !== null) {
         document.getElementById("discover-restaurant-name").dataset.id = data.id;
+        document.getElementById("discover-restaurant-name").dataset.address =
+            data.address;
         document.getElementById("discover-progress").style.opacity = 1;
         displayRestaurantSuggestion(data.name, data.rating, data.description,
             data.imageUrl, data.userName, data.review);
