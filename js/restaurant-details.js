@@ -6,7 +6,7 @@ $(function(){
 
     $.ajax({
         method: "GET",
-        url: "http://localhost/EatWhere/restaurant-index.php?action=menu&restaurant_id=" + restaurantID
+        url: "http://www.students.oamk.fi/~t6plro00/EatWhere/restaurant-index.php?action=menu&restaurant_id=" + restaurantID
     })
     .done(function(dishes) {
         var finalResult = "";
