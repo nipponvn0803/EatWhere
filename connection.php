@@ -5,10 +5,10 @@ $password = "hikzDFBB";
 $database = "opisk_t6trso00";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = mysqli_connect($servername, $username, $password, $database);
 
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if (!$conn) {
+    die("Connection error: " . mysqli_connect_errno());
 }
 ?>
