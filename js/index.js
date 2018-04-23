@@ -3,17 +3,21 @@ document.addEventListener('init', function (event) {
     var temp1 = document.getElementsByTagName("template")[0];
 
     if (page.id === 'index') {
+      // navigate to near-me tab when click on big near me button
+      page.querySelector('#navigation-button-1').onclick = function () {
+          document.getElementsByTagName('ons-tabbar')[0].setActiveTab(1);
+      };
       // navigate to discover tab when click on big discover button
       page.querySelector('#navigation-button-2').onclick = function () {
           document.getElementsByTagName('ons-tabbar')[0].setActiveTab(3);
       };
-      //open filter template when click on filter button
-      page.querySelector('#advanced').onclick = function () {
-          document.querySelector('#myNavigator').pushPage('filter.html', { data: { title: 'Filter' } });
-      };
       // navigate to promotion tab when click on big promotion button
       page.querySelector('#navigation-button-3').onclick = function () {
           document.getElementsByTagName('ons-tabbar')[0].setActiveTab(2);
+      };
+      //open filter template when click on filter button
+      page.querySelector('#advanced').onclick = function () {
+          document.querySelector('#myNavigator').pushPage('filter.html', { data: { title: 'Filter' } });
       };
         //set eatwhere logo to smaller font when input is focused
         //add "focused " class to logo when input is selected

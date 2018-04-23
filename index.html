@@ -29,15 +29,18 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-    <meta http-equiv="Content-Security-Policy" content="default-src https://unpkg.com/ 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' http://www.students.oamk.fi/~t6plro00/EatWhere/; style-src 'self' 'unsafe-inline' https://unpkg.com/; media-src *; img-src https: http: 'self' data: content:;">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src fonts.gstatic.com *.googleapis.com https://unpkg.com/ 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' http://www.students.oamk.fi; style-src *.googleapis.com 'self' 'unsafe-inline' https://unpkg.com/; media-src *; img-src https: http: 'self' data: content:; script-src students.oamk.fi http://www.students.oamk.fi/~t6plro00/EatWhere/discover.php *.googleapis.com  https://unpkg.com/ 'self';"> -->
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <script type="text/javascript" src="cordova.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/near-me.css">
     <script type="text/javascript" src="js/discover.js"></script>
     <link rel="stylesheet" type="text/css" href="css/discover.css">
     <script type="text/javascript" src="js/promotion.js"></script>
@@ -52,7 +55,7 @@
               <ons-tab page="index.html" label="Home" icon="ion-home, material:md-home"
                   active>
               </ons-tab>
-              <ons-tab page="setting.html" label="Discover" icon="ion-help">
+              <ons-tab page="near-me.html" label="Search" icon="ion-search">
               </ons-tab>
               <ons-tab page="promotion.html" label="Promotions" icon="ion-speakerphone">
               </ons-tab>
@@ -71,9 +74,10 @@
                 <p id="eatwhere">EatWhere</p>
 
             </div>
+            
             <form action="search-result.html" method="GET">
                 <p class="search-input-p">
-                    <ons-search-input placeholder="Search" name="query" modifier="material"></ons-search-input>
+                    <ons-search-input id="user-search" placeholder="Search" name="query" modifier="material"></ons-search-input>
                     <input id="filter-search" type="hidden" name="filter" value="123">
                 </p>
             </form>
@@ -246,6 +250,10 @@
 
 
     <script src="js/index.js"></script>
+    <script src="js/near-me.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhbky8_HJrcXAljcQ2OsiwZwI_s8Qqx20">
+    </script>
 </body>
 
 </html>
