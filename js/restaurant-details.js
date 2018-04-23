@@ -51,7 +51,8 @@ $(function(){
         $('#restaurant-image').attr('src', image);
 
         document.getElementById("restaurant-name").innerHTML = params
-            .restaurant_name.replace("+", " ").replace("%20", " ");
+            .restaurant_name.replace(/\+/g, " ").replace(/%20/g, " ")
+            .replace(/%27/g, "\'");
 
         dishes.forEach(function(dish) {
             var menu =  '<ons-list-item tappable> \
