@@ -1,4 +1,5 @@
 var map;
+var markerArray = [];
 function initMap() {
    map = new google.maps.Map(document.getElementById('map'), {
     zoom: 8,
@@ -14,18 +15,24 @@ function initMap() {
 
 //    downloadUrl('near-me.php', function(data) {
 downloadUrl('http://www.students.oamk.fi/~t6trso00/EatWhere/near-me.php', function(data) {
-  var xml = data.responseXML;
+        var xml = data.responseXML;
         var markers = xml.documentElement.getElementsByTagName('marker');
         Array.prototype.forEach.call(markers, function(markerElem) {
           var id = markerElem.getAttribute('id');
           var name = markerElem.getAttribute('name');
           var address = markerElem.getAttribute('address');
-          geocodeAddress(name, address, geocoder, map);
+          geocodeAddress(name, address, geocoder, map, id);
         });
 });
+
 }
 
+$(document).ready(function(){
+        initMap();
+        //onload, get user location if fail after 2seconds, set current location at Kotkantie
+        navigator.geolocation.getCurrentPosition(onSuccess,errorCallback,{timeout:2000});
 
+    })
 var curLat;
 var curLong;
 //Get current location
@@ -72,7 +79,7 @@ function showLocation() {
             anchor: new google.maps.Point(0, 0), // anchor
             labelOrigin: new google.maps.Point(70, 12)},
         });
-      }
+}
 
   function downloadUrl(url, callback) {
     var request = window.ActiveXObject ?
@@ -88,7 +95,7 @@ function showLocation() {
     request.send(null);
   }
 
-  function geocodeAddress(restaurantName, addressName, geocoder, resultsMap) {
+  function geocodeAddress(restaurantName, addressName, geocoder, resultsMap, restaurantID) {
     geocoder.geocode({'address': addressName}, function(results, status) {
       if (status === 'OK') {
 
@@ -98,12 +105,29 @@ function showLocation() {
           label: restaurantName,
           icon: {
             url: "img/pin.png", // url
-            scaledSize: new google.maps.Size(30, 30), // scaled size
+            scaledSize: new google.maps.Size(50, 50), // scaled size
             origin: new google.maps.Point(0,0), // origin
             anchor: new google.maps.Point(0, 0), // anchor
-            labelOrigin: new google.maps.Point(15, -20)
+            labelOrigin: new google.maps.Point(30, -20),
+            customId : restaurantID,
+            customName : restaurantName,
+            customAddress: addressName
           }
         });
+        marker.addListener('click', function() {
+
+          var id = marker.icon.customId;
+          var restaurantName = marker.icon.customName;
+          var addressName = marker.icon.customAddress;
+
+          window.location = "restaurant-detail.html?restaurant_id="
+              + id
+              + "&restaurant_address="
+              + addressName
+              + "&restaurant_name="
+              + restaurantName;
+          console.log(link);
+      });
 
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
@@ -112,8 +136,3 @@ function showLocation() {
   }
 
  function doNothing() {}
- $(document).ready(function(){
-         initMap();
-         //onload, get user location if fail after 2seconds, set current location at Kotkantie
-         navigator.geolocation.getCurrentPosition(onSuccess,errorCallback,{timeout:2000});
-     })
